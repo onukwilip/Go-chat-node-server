@@ -1,0 +1,34 @@
+{
+  "name": "go-chat-node-server",
+  "version": "1.0.0",
+  "description": "This is the node js backend for go-chat web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onukwilip/Go-chat-node-server.git"
+  },
+  "keywords": [
+    "socket.io",
+    "node.js",
+    "javascript",
+    "chat",
+    "application"
+  ],
+  "author": "Onukwili Prince C.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onukwilip/Go-chat-node-server/issues"
+  },
+  "homepage": "https://github.com/onukwilip/Go-chat-node-server#readme",
+  "dependencies": {
+    "axios": "^1.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.5.2"
+  }
+}
