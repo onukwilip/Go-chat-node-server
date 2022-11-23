@@ -15,6 +15,7 @@ const io = new Server(server, {
       "http://localhost:3000",
       "http://localhost:3001",
       "https://admin.socket.io",
+      "https://gochat-tau.vercel.app",
     ],
     methods: ["GET", "POST"],
     "Access-Control-Allow-Credentials": true,
