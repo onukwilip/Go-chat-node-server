@@ -28,6 +28,8 @@ const chatRoomIo = io.of("/chatroom");
 
 const discussionIo = io.of("/discussion");
 
+const notification = io.of("/notification");
+
 const socketHandler = (socket) => {
   socket.emit("connection", (message = "You are connected successfully"));
   console.log(`USER ${socket.id} CONNECTED SUCCESSFULLY`);
@@ -96,11 +98,34 @@ const discussionHandler = (socket) => {
   });
 };
 
+const notificationHandler = (socket) => {
+  socket.emit(
+    "connection",
+    (message = "You are connected to notification namespace successfully")
+  );
+
+  console.log(
+    `USER ${socket.id} CONNECTED TO NOTIFICATION NAMESPACE SUCCESSFULLY`
+  );
+
+  socket.on("join", (userid) => {
+    socket.join(userid);
+
+    console.log(`USER ${socket.id} JOINED ${userid} SUCCESSFULLY`);
+  });
+
+  socket.on("notify", (userid) => {
+    socket.to(userid).emit("notification");
+  });
+};
+
 discussionIo.on("connection", discussionHandler);
 
 userIo.on("connection", userHandler);
 
 chatRoomIo.on("connection", chatroomHandler);
+
+notification.on("connection", notificationHandler);
 
 io.on("connection", socketHandler);
 
